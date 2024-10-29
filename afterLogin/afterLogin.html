@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <title>Document</title>
+    <style>
+      .bg-abucerah {
+        background-color: rgb(237, 236, 235);
+      }
+      .bg-abu {
+        background-color: rgb(214, 213, 210);
+      }
+      #container {
+        width: 100vw;
+        height: 100vh;
+      }
+      #child-container {
+        height: 100%;
+      }
+      button:hover {
+        transform: scale(0.95);
+        user-select: none;
+        height: auto;
+      }
+
+      img:nth-child(1) {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 50%;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.349);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container" class="bg-abu py-5">
+      <div
+        id="child-container"
+        class="position-relative rounded-5 bg-abucerah px-5 py-4 d-grid col-md-8 mx-auto"
+      >
+        <!-- Nav Section -->
+        <nav class="d-flex justify-content-between">
+          <p>Created by Aridwan</p>
+          <div>
+            <button
+              class="me-2 border-2 rounded"
+              onclick="location.href = '../login/login.html'"
+            >
+              Log Out
+            </button>
+          </div>
+        </nav>
+
+        <!-- Greeting Section -->
+        <div
+          id="greeting"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <img src="../img/photo.jpg" alt="Foto" class="mb-3" />
+          <h1 class="text-center fw-bold mt-3">
+            Hello There! <br />Welcome to my website.
+          </h1>
+        </div>
+
+        <!-- Question Section -->
+        <p class="text-center">
+          Fast Question <br /><b>Do you like my website?</b>
+        </p>
+        <div id="buttons" class="w-100 text-center position-relative">
+          <button
+            id="yes-option"
+            onclick="handleYes()"
+            class="bg-black text-light px-3 rounded"
+          >
+            Yes
+          </button>
+          <button id="no-option" onclick="handleNo()" class="ms-2 px-3 rounded">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      const btnNo = document.getElementById("no-option");
+      const btnContainer = document.getElementById("buttons");
+      function handleNo() {
+        btnNo.style.position = "absolute";
+        btnNo.style.top = `${Math.round(
+          Math.random() * btnContainer.offsetHeight
+        )}px`;
+        btnNo.style.left = `${Math.round(
+          Math.random() * btnContainer.offsetWidth
+        )}px`;
+        btnNo.style.transform = "translate(-100%, -100%)";
+      }
+      function handleYes() {
+        Swal.fire({
+          title: "~(￣▽￣～)",
+          text: "Thank You!",
+          imageUrl: "../img/pentol-quby.gif",
+          imageWidth: 400,
+          imageHeight: 400,
+          imageAlt: "Custom image",
+        });
+      }
+    </script>
+  </body>
+</html>
